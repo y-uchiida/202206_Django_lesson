@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Python 講座</title>
+</head>
+<body>
+<h1>社員情報作成ページ</h1>
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="作成">
+</form>
+</body>
+</html>

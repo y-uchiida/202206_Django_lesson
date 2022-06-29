@@ -18,5 +18,13 @@ urlpatterns = [
     path('home/', views.Home.as_view(), name='home'),
     
     # パスパラメータとして変数を受け取る
-    path('calc/<int:num1>/<int:num2>', views.calc, name='calc')
+    path('calc/<int:num1>/<int:num2>', views.calc, name='calc'),
+
+    # コメントの入力画面を表示するURLを設定する
+    # localhost/myapp/comment_create で実行される
+    # as_view() メソッドで、レスポンスが返せるように処理をする
+    path('comment_create', views.CommentCreateView.as_view(), name='comment_create'),
+
+    # コメントの一覧表示用のURLを設定
+    path('comment_list', views.CommentListView.as_view(), name='comment_list'),
 ]

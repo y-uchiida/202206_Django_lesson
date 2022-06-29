@@ -22,5 +22,7 @@ urlpatterns = [
     # myappのURL設定を利用できるようにする
     # path('URLの条件、パターン', include('条件に一致したときに処理を引き渡すファイル') )
     # localhost/myapp/... にアクセスされたら、それ以降の内容をmyapp/urls.pyのパスとして解釈させる
-    path('myapp/', include('myapp.urls'))
+    path('myapp/', include('myapp.urls')),
+
+    path('myapp2/' , include('myapp2.urls')),
 ]
