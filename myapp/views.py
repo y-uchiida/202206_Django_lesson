@@ -57,3 +57,8 @@ class CommentCreateView(CreateView):
 class CommentListView(ListView):
     model = Comment # どのモデルのデータを表示するか
     template_name = 'myapp/comment_list.html'
+
+
+# 復習用：TmplateViewのクラスを使って、HTMLを読み込んで表示する
+class Sample(TemplateView): # テンプレート表示用の汎用viewクラスを継承
+    template_name = 'myapp/sample.html' # /templates/myapp/sample.html

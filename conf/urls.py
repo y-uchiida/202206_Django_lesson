@@ -16,9 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# HtmlResponse を返すためのモジュールをインポート
+from django.http import HttpResponse
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    
+
     # myappのURL設定を利用できるようにする
     # path('URLの条件、パターン', include('条件に一致したときに処理を引き渡すファイル') )
     # localhost/myapp/... にアクセスされたら、それ以降の内容をmyapp/urls.pyのパスとして解釈させる

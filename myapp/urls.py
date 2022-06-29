@@ -27,4 +27,8 @@ urlpatterns = [
 
     # コメントの一覧表示用のURLを設定
     path('comment_list', views.CommentListView.as_view(), name='comment_list'),
+    
+    # 復習用：internetacademy/ にアクセスされたら、テンプレートのHTMLを読み込んで表示する
+    # <汎用ビュークラス名>.as_view() : 指定のクラスをview関数として実行することができる
+    path('internetacademy', views.Sample.as_view()),
 ]
