@@ -19,6 +19,12 @@ from django.urls import path, include
 # HtmlResponse を返すためのモジュールをインポート
 from django.http import HttpResponse
 
+# プロジェクト全体の設定情報を読み込みするための設定
+from django.conf import settings
+
+# スタティックURLを設定するためのモジュールをインポート
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
@@ -28,4 +34,13 @@ urlpatterns = [
     path('myapp/', include('myapp.urls')),
 
     path('myapp2/' , include('myapp2.urls')),
+    
+    # crud のアプリケーションの内容へ処理を引き渡す
+    path('crud/', include('crud.urls'))
 ]
+
+# 開発環境などであれば、スタティックURLを利用できるようにする
+# /media/... のURLにアクセスされたら、 Djangoのプロジェクトのmedia ディレクトリの内容を参照するように関連付けを設定する
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, 
+                          document_root=settings.MEDIA_ROOT)
