@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts.apps.AccountsConfig',
     'crud.apps.CrudConfig',
     'myapp.apps.MyappConfig',
     'myapp2.apps.Myapp2Config',
@@ -132,3 +133,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # メディアファイルの保存場所の設定
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/' # localhost/media/... で、メディアファイルにアクセスできる
+
+
+# このプロジェクトで認証に利用するクラスを指定
+AUTH_USER_MODEL='accounts.CustomUser'
+
+
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/accounts/home/'

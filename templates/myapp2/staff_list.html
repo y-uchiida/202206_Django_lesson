@@ -1,0 +1,31 @@
+<h1>社員リスト</h1>
+
+<table border='1'>
+
+	<tr>
+		<td>id</td>
+		<td>ビジネスネーム</td>
+		<td>所属部署名</td>
+		<td>借りている本</td>
+		<td>編集</td>
+		<td>削除</td>
+	</tr>
+
+	{% for staff in staff_list %}
+		<tr>
+			<td>{{ staff.id }}</td>
+			<td>{{ staff.name }}</td>
+			<td>{{ staff.department.name }}</td>
+			<td>
+				<ul>
+					{% for book in staff.rented_books.all %}
+						<li>{{ book.name }} (管理コード: {{ book.management_code }}) </li>
+					{% endfor %}
+				</ul>
+			</td>
+			<td> <a href="{% url 'myapp2:staff_update' staff.id %}">編集</a> </td>
+			<td></td>
+		</tr>
+	{% endfor %}
+
+</table>

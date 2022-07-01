@@ -36,7 +36,11 @@ urlpatterns = [
     path('myapp2/' , include('myapp2.urls')),
     
     # crud のアプリケーションの内容へ処理を引き渡す
-    path('crud/', include('crud.urls'))
+    path('crud/', include('crud.urls')),
+    
+    # ユーザー認証用の機能を持たせたアプリケーションへ処理を引き渡す
+    path('accounts/', include('accounts.urls'))
+    
 ]
 
 # 開発環境などであれば、スタティックURLを利用できるようにする

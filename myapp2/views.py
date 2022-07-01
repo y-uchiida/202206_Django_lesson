@@ -1,4 +1,4 @@
-from django.views.generic import CreateView, DetailView, UpdateView, FormView
+from django.views.generic import CreateView, DetailView, UpdateView, FormView, ListView
 from django.urls import reverse_lazy
 from .models import StaffInformation, Staff
 from .forms import StaffInformationForm, StaffForm
@@ -16,3 +16,15 @@ class StaffCreateView(CreateView):
     form_class = StaffForm
     template_name = 'myapp2/staff_create.html'
     success_url = reverse_lazy('myapp:home')
+
+# 社員の基本情報を一覧表示する画面のビュー
+class StaffListView(ListView):
+    model = Staff
+    template_name = 'myapp2/staff_list.html'
+
+# 社員の編集画面のビュー
+class StaffUpdateView(UpdateView):
+    model = Staff
+    form_class = StaffForm
+    template_name = 'myapp2/staff_update.html'
+    success_url = reverse_lazy('myapp2:staff_list')

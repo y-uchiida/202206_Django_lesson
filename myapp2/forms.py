@@ -11,4 +11,4 @@ class StaffInformationForm(forms.ModelForm):
 class StaffForm(forms.ModelForm):
     class Meta:
         model = Staff
-        fields = ('name', 'information')
+        fields = ('name', 'rented_books', 'information')
